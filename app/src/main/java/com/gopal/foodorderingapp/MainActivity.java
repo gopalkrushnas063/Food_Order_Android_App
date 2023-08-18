@@ -1,10 +1,8 @@
-package com.gopal.foodorderingapp.Activity;
+package com.gopal.foodorderingapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import com.gopal.foodorderingapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
