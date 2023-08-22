@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.gopal.foodorderingapp.MainActivity;
 import com.gopal.foodorderingapp.R;
 
 public class IntroActivity extends AppCompatActivity {
