@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.gopal.foodorderingapp.Domain.FoodDomain;
+import com.gopal.foodorderingapp.Interface.ChangeNumberItemsListener;
 
 import java.util.ArrayList;
 
@@ -29,17 +30,48 @@ public class ManagementCart {
             }
         }
 
-        if(existAlready){
+        if (existAlready) {
             listFood.get(n).setNumberInCart(item.getNumberInCart());
-        }else{
+        } else {
             listFood.add(item);
         }
 
-        tinyDB.putListObject("CardList",listFood);
-        Toast.makeText(context,"Added TO Your Cart",Toast.LENGTH_SHORT).show();
+        tinyDB.putListObject("CartList", listFood);
+        Toast.makeText(context, "Added To Your Cart", Toast.LENGTH_SHORT).show();
     }
 
     public ArrayList<FoodDomain> getListCart() {
-        return tinyDB.getListObject("CardList");
+        return tinyDB.getListObject("CartList");
     }
+
+
+    public void plusNumberFood(ArrayList<FoodDomain> listFood, int position, ChangeNumberItemsListener changeNumberItemsListener) {
+        listFood.get(position).setNumberInCart(listFood.get(position).getNumberInCart()+1);
+        tinyDB.putListObject("CartList",listFood);
+        changeNumberItemsListener.changed();
+    }
+
+    public void minusNumberFood(ArrayList<FoodDomain> listFood, int position, ChangeNumberItemsListener changeNumberItemsListener){
+        if(listFood.get(position).getNumberInCart() == 1){
+            listFood.remove(position);
+        }
+        else {
+            listFood.get(position).setNumberInCart(listFood.get(position).getNumberInCart()-1);
+        }
+
+        tinyDB.putListObject("CartList",listFood);
+        changeNumberItemsListener.changed();
+    }
+
+
+    public Double getTotalFee(){
+        ArrayList<FoodDomain> listFood = getListCart();
+        double fee = 0;
+        for (int i = 0; i < listFood.size() ; i++) {
+            fee = fee + (listFood.get(i).getFee()*listFood.get(i).getNumberInCart());
+        }
+
+        return fee;
+    }
+
 }

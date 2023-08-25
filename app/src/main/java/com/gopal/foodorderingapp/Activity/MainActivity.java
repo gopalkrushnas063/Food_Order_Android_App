@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.gopal.foodorderingapp.Adapter.CategoryAdapter;
 import com.gopal.foodorderingapp.Adapter.PopularAdapter;
 import com.gopal.foodorderingapp.Domain.CategoryDomain;
@@ -27,6 +31,26 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewCategory();
         recyclerViewPopular();
+        bottomNavigation();
+    }
+
+    private void bottomNavigation(){
+        FloatingActionButton floatingActionButton = findViewById(R.id.cartBtn);
+        LinearLayout homeBtn = findViewById(R.id.homeBtn);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,CartListActivity.class));
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MainActivity.class));
+            }
+        });
     }
 
     private void recyclerViewCategory() {

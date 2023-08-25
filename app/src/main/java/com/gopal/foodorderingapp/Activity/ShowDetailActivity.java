@@ -2,6 +2,7 @@ package com.gopal.foodorderingapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,6 +32,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         getBundle();
     }
 
+    @SuppressLint("SetTextI18n")
     private void getBundle() {
         object = (FoodDomain) getIntent().getSerializableExtra("object");
 
@@ -41,7 +43,7 @@ public class ShowDetailActivity extends AppCompatActivity {
 
 
         titleTxt.setText(object.getTitle());
-        feeTxt.setText("₹ " + object.getFee());
+        feeTxt.setText("₹" + object.getFee());
         descriptionTxt.setText(object.getDescription());
         numberOrderTxt.setText(String.valueOf(numberOrder));
 

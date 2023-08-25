@@ -240,8 +240,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/btn1"
-                        app:srcCompat="@drawable/baseline_home_24" />
+                        app:srcCompat="@drawable/home_btn" />
 
                     <TextView
                         android:id="@+id/textView10"
@@ -265,7 +264,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/btn1"
                         app:srcCompat="@drawable/baseline_person_2_24" />
 
                     <TextView
@@ -290,7 +288,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/btn1"
                         app:srcCompat="@drawable/baseline_chat_24" />
 
                     <TextView
@@ -315,7 +312,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/btn1"
                         app:srcCompat="@drawable/settings" />
 
                     <TextView
@@ -356,14 +352,17 @@
         </com.google.android.material.bottomappbar.BottomAppBar>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cartBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#ff5e00"
             android:elevation="3dp"
             android:src="@drawable/shopping_cart"
+            android:tint="#ffffff"
             app:backgroundTint="#ff5e00"
             app:layout_anchor="@id/app_bar"
-            app:layout_anchorGravity="center|bottom">
+            app:layout_anchorGravity="center|bottom"
+            tools:tint="#ffffff">
 
         </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
